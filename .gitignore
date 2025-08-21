@@ -1,0 +1,49 @@
+# Log files and directories
+logs/
+*.log
+*.out
+*.err
+
+# Output directories
+*outputs/
+*output/
+*results/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Model files (typically large)
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# Data files (adjust as needed)
+*.bam
+*.bai
+*.fa
+*.fasta
+*.fastq
+*.gz
