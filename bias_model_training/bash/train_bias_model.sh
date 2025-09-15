@@ -11,6 +11,14 @@
 source /gs/gsfs0/hpc01/rhel8/apps/conda3/etc/profile.d/conda.sh
 module load singularity
 
+
+
+mkdir -p /gs/gsfs0/shared-lab/greally-lab/David/tmp
+mkdir -p /gs/gsfs0/shared-lab/greally-lab/David/singularity_cache
+
+export SINGULARITY_TMPDIR=/gs/gsfs0/shared-lab/greally-lab/David/tmp
+export SINGULARITY_CACHEDIR=/gs/gsfs0/shared-lab/greally-lab/David/singularity_cache
+
 bam_file="$1"
 peaks_file="$2"
 non_peaks_file="$3"
@@ -20,7 +28,8 @@ output_dir="$6"
 sample_name="$7"
 
 # Define singularity image
-singularity_image=/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/generate_folds/chrombpnet_latest.sif
+
+singularity_image="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/singularity_image/chrombpnet_latest.sif"
 GENOME_FILE="/gs/gsfs0/shared-lab/greally-lab/David/reference_genomes/hg38/GRCh38_full_analysis_set_plus_decoy_hla.fa"
 CHROM_SIZES="/gs/gsfs0/shared-lab/greally-lab/chynna/osteo_chynna/chromBPnet/indexes/hg38.autosomes.chrom.sizes" 
 BLACKLIST_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/peak_calling/dependency_files/hg38-blacklist.v2.bed.gz" 

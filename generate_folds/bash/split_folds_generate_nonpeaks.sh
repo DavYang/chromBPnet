@@ -2,7 +2,7 @@
 #SBATCH --job-name=splitfolds              
 #SBATCH --partition=normal                      
 #SBATCH --mem=16G
-#SBATCH --time=4:00:00
+#SBATCH --time=2-00:00:00
 #SBATCH --output=logs/splitfolds_%A.out         
 #SBATCH --error=logs/splitfolds_%A.err
 
@@ -27,7 +27,7 @@ BASE_OUT_DIR=$2
 GENOME_FILE="/gs/gsfs0/shared-lab/greally-lab/David/reference_genomes/hg38/GRCh38_full_analysis_set_plus_decoy_hla.fa"
 CHROM_SIZES="/gs/gsfs0/shared-lab/greally-lab/chynna/osteo_chynna/chromBPnet/indexes/hg38.autosomes.chrom.sizes" 
 BLACKLIST_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/peak_calling/dependency_files/hg38-blacklist.v2.bed.gz" 
-
+singularity_image="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/singularity_image/chrombpnet_latest.sif"
 # --- Dynamic Paths ---
 # Extract a clean sample name from the input file (e.g., "cd14_monocyte_merged_peaks.final.narrowPeak" -> "cd14_monocyte_merged")
 SAMPLE_NAME=$(basename "${PEAK_FILE}" | sed -e 's/_peaks.final.narrowPeak//')
@@ -81,7 +81,7 @@ for fold_num in {0..4}; do
     echo "Generating chromosome splits for fold ${fold_num}..."
 
     singularity exec --bind /gs/gsfs0/shared-lab/greally-lab:/gs/gsfs0/shared-lab/greally-lab \
-        chrombpnet_latest.sif chrombpnet prep splits \
+        $singularity_image chrombpnet prep splits \
         -c "$CHROM_SIZES" \
         -tcr $test_chrs \
         -vcr $valid_chrs \
@@ -100,7 +100,7 @@ for fold_num in {0..4}; do
     nonpeak_output_prefix="${OUTPUT_DIR_FOLDS}/f${fold_num}_output"
 
     singularity exec --bind /gs/gsfs0/shared-lab/greally-lab:/gs/gsfs0/shared-lab/greally-lab \
-        chrombpnet_latest.sif chrombpnet prep nonpeaks \
+        $singularity_image chrombpnet prep nonpeaks \
         -g "$GENOME_FILE" \
         -p "$PEAK_FILE" \
         -c "$CHROM_SIZES" \

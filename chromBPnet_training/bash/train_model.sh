@@ -26,16 +26,17 @@ HOME_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_
 singularity_image="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/singularity_image/chrombpnet_latest.sif"
 
 # Input files and parameters
-BAM_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/results/bwa/merged_library/autosomes_only/merged_pbmcs_2-4/pbmc-2_4_merged.mLb.clN.sorted.bam"
 GENOME_FILE="/gs/gsfs0/shared-lab/greally-lab/David/reference_genomes/hg38/GRCh38_full_analysis_set_plus_decoy_hla.fa"
 CHROM_SIZES="/gs/gsfs0/shared-lab/greally-lab/chynna/osteo_chynna/chromBPnet/indexes/hg38.autosomes.chrom.sizes"
-PEAKS_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/peak_calling/outputs/pbmc-2_4_merged/pbmc-2_4_merged_peaks.final.narrowPeak"
-NEGATIVE_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/generate_folds/outputs/pbmc-2_4_merged/folds/f${FOLD_ID}_output_negatives.bed"
-FOLD_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/generate_folds/outputs/pbmc-2_4_merged/splits/fold_${FOLD_ID}.json"
-BIAS_MODEL="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/bias_model_training/outputs/pbmc-2_4_merged/bias_model_f0_b0.6/models/pbmc-2_4_merged_bias.h5"
+BAM_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/results_9-5-2025/bwa/merged_library/autosomes_only/pbmcs_2-9-parallel/merged/pbmc_merged.bam"
+PEAKS_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/peak_calling/outputs/pbmc_merged/pbmc_merged_peaks.final.narrowPeak"
+NEGATIVE_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/generate_folds/outputs/pbmc_merged/folds/f${FOLD_ID}_output_negatives.bed"
+FOLD_FILE="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/generate_folds/outputs/pbmc_merged/splits/fold_${FOLD_ID}.json"
+BIAS_MODEL="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/bias_model_training/outputs/pbmc_merged/bias_model_f0_b1.0/models/pbmc_merged_bias.h5"
 
 # Define output directory with array index
-OUTPUT_DIR="$HOME_DIR/outputs/pbmc-2_4_merged/chrombpnet_model_b0.6/fold_${FOLD_ID}/"
+OUTPUT_DIR="$HOME_DIR/outputs/pbmc_merged/chrombpnet_model_b1.0/fold_${FOLD_ID}/"
+
 
 # Create output directory
 mkdir -p $OUTPUT_DIR

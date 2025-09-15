@@ -1,14 +1,21 @@
+.DS_Store
+._.DS_Store
+.python-version
+.vscode/
+
 # Log files and directories
 logs/
 *.log
 *.out
 *.err
-
+.nextflow*
 # Output directories
-*outputs/
-*output/
-*results/
-
+outputs/
+output/
+results/
+data_downloads/SRR*
+singularity_images/
+singularity/
 # Python cache files
 __pycache__/
 *.pyc
@@ -33,13 +40,14 @@ Thumbs.db
 *.temp
 temp/
 tmp/
+work/
 
 # Model files (typically large)
 *.h5
 *.hdf5
 *.pkl
 *.pickle
-
+*.sif
 # Data files (adjust as needed)
 *.bam
 *.bai
@@ -47,3 +55,6 @@ tmp/
 *.fasta
 *.fastq
 *.gz
+
+
+*.code-workspace
