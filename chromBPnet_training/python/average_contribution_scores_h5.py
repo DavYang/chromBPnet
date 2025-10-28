@@ -2,6 +2,7 @@ import h5py
 import numpy as np
 import glob
 import hdf5plugin
+import argparse
 
 def average_h5_files(file_pattern, output_path):
     """
@@ -80,9 +81,10 @@ def average_h5_files(file_pattern, output_path):
     
     print(f"Averaging complete. Output saved to {output_path}")
 
-# File pattern and output path
-file_pattern = "/gpfs/commons/home/mmatos/cd4_chrombpnet/chrombpnet_model_b7/contribution_scores_bw/fold_*/cd4_tcells.counts_scores.h5"
-output_path = "/gpfs/commons/home/mmatos/cd4_chrombpnet/chrombpnet_model_b7/contribution_scores_bw/averaged_folds_cd4_tcells.counts_scores.h5"
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Average multiple HDF5 files matching a file pattern and save the output.")
+    parser.add_argument('--file_pattern', type=str, required=True, help='Glob pattern matching input H5 files')
+    parser.add_argument('--output_path', type=str, required=True, help='Output H5 file path for averaged result')
+    args = parser.parse_args()
 
-# Run the averaging function
-average_h5_files(file_pattern, output_path)
+    average_h5_files(args.file_pattern, args.output_path)

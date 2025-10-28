@@ -7,4 +7,5 @@ In each directory are indivudal steps for training chromBPnet models and analyzi
 3) peak_calling: This directory is dedicated to running MACS3 to call ATAC-seq peaks, using settings from the ChromBPNet paper.
 4) generate_folds: This directory is dedicated to generating folds for cross-validation.
 5) bias_model_training: This directory is dedicated to training the Tn5 bias model. 1 model will be trained for each cell type. 
+6) variant_scoring: Dedicated to scoring NCVs using trained chrombpnet models.
 
