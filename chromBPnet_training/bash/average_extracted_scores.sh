@@ -11,16 +11,14 @@
 # Load conda environment
 source /gs/gsfs0/hpc01/rhel8/apps/conda3/etc/profile.d/conda.sh 
 
-
-
 # Define full home path to replace tilde
 
 # Define directories
-CONTRIB_INPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/contribution_scores_bw"
-CONTRIB_OUTPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/contribution_scores_bw/averaged_scores"
+CONTRIB_INPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/contribution_scores_bw"
+CONTRIB_OUTPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/contribution_scores_bw/averaged_scores"
 
-PRED_INPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/prediction_scores_bw"
-PRED_OUTPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/prediction_scores_bw/averaged_scores"
+PRED_INPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/prediction_scores_bw"
+PRED_OUTPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/prediction_scores_bw/averaged_scores"
 chromsizes="/gs/gsfs0/shared-lab/greally-lab/chynna/osteo_chynna/chromBPnet/indexes/hg38.autosomes.chrom.sizes"
 
 # Create output directories if they don't exist

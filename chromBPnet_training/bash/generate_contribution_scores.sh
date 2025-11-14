@@ -46,15 +46,15 @@ singularity_image="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/si
 FOLD_ID=${SLURM_ARRAY_TASK_ID}
 
 # Define output directory first so we can use it for other path definitions
-OUTPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/contribution_scores_bw/fold_${FOLD_ID}/"
+OUTPUT_DIR="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/contribution_scores_bw/fold_${FOLD_ID}/"
 
 genome="/gs/gsfs0/shared-lab/greally-lab/David/reference_genomes/hg38/GRCh38_full_analysis_set_plus_decoy_hla.fa"
-model="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/fold_${FOLD_ID}/models/chrombpnet.h5"
-model_nobias="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/fold_${FOLD_ID}/models/chrombpnet_nobias.h5"
+model="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/fold_${FOLD_ID}/models/chrombpnet.h5"
+model_nobias="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/fold_${FOLD_ID}/models/chrombpnet_nobias.h5"
 chromsizes="/gs/gsfs0/shared-lab/greally-lab/chynna/osteo_chynna/chromBPnet/indexes/hg38.autosomes.chrom.sizes"
-peaks="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/peak_calling/outputs/pbmc_merged/pbmc_merged_peaks.final.narrowPeak"
+peaks="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/peak_calling/outputs/neutrophil_merged/neutrophil_merged_peaks.final.narrowPeak"
 
-out_prefix=$OUTPUT_DIR/pbmc-merged
+out_prefix=$OUTPUT_DIR/neutrophil_merged
 
 # Create output directory
 mkdir -p $OUTPUT_DIR

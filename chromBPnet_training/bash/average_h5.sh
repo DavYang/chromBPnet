@@ -12,8 +12,8 @@ source /gs/gsfs0/hpc01/rhel8/apps/conda3/etc/profile.d/conda.sh
 conda activate chrombpnet_python
 
 # Define file paths (correct bash syntax)
-file_pattern="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/contribution_scores_bw/fold_*/pbmc-merged.counts_scores.h5"
-output_path="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/pbmc_merged/chrombpnet_model_b1.0/contribution_scores_bw/averaged_scores/averaged_folds_pbmc-merged.counts_scores.h5"
+file_pattern="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/contribution_scores_bw/fold_*/neutrophil_merged.counts_scores.h5"
+output_path="/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/chromBPnet_training/outputs/neutrophil_merged/chrombpnet_model_b1.0/contribution_scores_bw/averaged_scores/averaged_folds_neutrophil_merged.counts_scores.h5"
 
 # Create output directory if it doesn't exist
 mkdir -p "$(dirname "$output_path")"

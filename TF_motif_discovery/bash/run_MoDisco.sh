@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --job-name=modisco_profile
-#SBATCH --partition=unlimited
+#SBATCH --partition=normal
 #SBATCH --cpus-per-task=16      
 #SBATCH --mem=150G              
-#SBATCH --time=infinite       
+#SBATCH --time=2-00:00:00       
 #SBATCH --output=logs/modisco_%x_%A_%a.out
 #SBATCH --error=logs/modisco_%x_%A_%a.err
 
@@ -31,7 +31,7 @@ echo "Running modisco motif discovery"
 modisco motifs \
     -i "$AVERAGED_SCORES_H5" \
     -n 1000000 \
-    -o "$OUTPUT_DIR" \
+    -o "$OUTPUT_PREFIX" \
     -w 400
 
 echo "MoDisco motif discovery completed"
