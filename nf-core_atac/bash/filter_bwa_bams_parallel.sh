@@ -2,8 +2,8 @@
 #SBATCH --job-name=filter_bwa_bams_parallel
 #SBATCH --output=logs/filter_bwa_bams_parallel_%A_%a.out
 #SBATCH --error=logs/filter_bwa_bams_parallel_%A_%a.err
-#SBATCH --time=4-00:00:00
-#SBATCH --partition=unlimited
+#SBATCH --time=4:00:00
+#SBATCH --partition=quick
 #SBATCH --mem=32G
 #SBATCH --nodes=1
 #SBATCH --ntasks=1

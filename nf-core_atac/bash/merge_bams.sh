@@ -15,7 +15,8 @@ set -e
 
 # --- Usage ---
 if [ "$#" -ne 2 ]; then
-    echo "Merge all neutrophil sample BAM files into a single merged file."
+    echo "Merge only the two highest-quality neutrophil BAM files (neutrophil-2_REP2 and neutrophil-3_REP2)."
+    echo "Based on FastQC analysis, these have the best duplication levels (71-74% deduplicated)."
     echo "Usage: $0 <input_dir> <output_dir>"
     exit 1
 fi
@@ -32,14 +33,18 @@ fi
 
 mkdir -p "${OUT_DIR}"
 
-# --- Collect All BAM Files ---
+# --- Collect High-Quality BAM Files Only ---
 ALL_BAMS=()
 
-for SAMPLE_BAM in $(find "${IN_DIR}" -maxdepth 1 -name "*.bam" | sort); do
+echo "Selecting only high-quality neutrophil samples (neutrophil-2_REP2 and neutrophil-3_REP2)..."
+for SAMPLE_BAM in $(find "${IN_DIR}" -name "neutrophil-[23]_REP2.mLb.clN.sorted.bam" | sort); do
+    echo "Including: $(basename "$SAMPLE_BAM")"
     ALL_BAMS+=("${SAMPLE_BAM}")
 done
 
-# --- Merge All neutrophil Samples ---
+echo "Found ${#ALL_BAMS[@]} high-quality BAM files to merge"
+
+# --- Merge High-Quality neutrophil Samples ---
 FINAL_MERGED_BAM="${OUT_DIR}/neutrophil_merged.bam"
 
 if [ ${#ALL_BAMS[@]} -gt 1 ]; then
@@ -52,5 +57,6 @@ else
     cp "${ALL_BAMS[0]}.bai" "${FINAL_MERGED_BAM}.bai"
 fi
 
-echo "Merged BAM created: ${FINAL_MERGED_BAM}"
+echo "High-quality merged BAM created: ${FINAL_MERGED_BAM}"
 echo "Total reads: $(samtools view -c "${FINAL_MERGED_BAM}")"
+echo "Samples included: neutrophil-2_REP2 and neutrophil-3_REP2 (71-74% deduplication rates)"

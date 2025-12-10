@@ -17,12 +17,14 @@ module load singularity
 # module unload java
 module load java/jdk-18.0.2
 
+
+input_file="$1"
+outdir="$2"
 nextflow run nf-core/atacseq \
     -profile singularity \
-    --input /gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/sample_list_pbmc.csv \
-    --outdir /gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/results_9-5-2025/ \
+    --input $input_file \
+    --outdir $outdir \
     --genome GRCh38 \
-    --read_length 150 \
     -params-file /gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/params.yaml \
     -c /gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/nextflow.config \
     -r 2.1.2 

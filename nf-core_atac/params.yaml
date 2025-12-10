@@ -1,6 +1,6 @@
-input: '/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/sample_list_pbmc.csv'
-outdir: '/gs/gsfs0/shared-lab/greally-lab/David/chromBPnet_analysis/nf-core_atac/results/'
 genome: 'GRCh38'
-read_length: 150
+read_length: 200
+
+
 
 
