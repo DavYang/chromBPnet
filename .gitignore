@@ -16,6 +16,8 @@ results/
 data_downloads/SRR*
 singularity_images/
 singularity/
+singularity_image/
+
 # Python cache files
 __pycache__/
 *.pyc
